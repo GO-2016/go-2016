@@ -1,0 +1,3 @@
+[submodule "vendor/libmcts"]
+	path = vendor/libmcts
+	url = https://github.com/GO-2016/libmcts.git
