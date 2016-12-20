@@ -1,3 +1,15 @@
 [submodule "vendor/libmcts"]
 	path = vendor/libmcts
 	url = https://github.com/GO-2016/libmcts.git
+[submodule "vendor/libgo-common"]
+	path = vendor/libgo-common
+	url = https://github.com/sjtu-ai-go/libgo-common.git
+[submodule "vendor/libgoboard"]
+	path = vendor/libgoboard
+	url = https://github.com/sjtu-ai-go/libgoboard.git
+[submodule "vendor/gtplib"]
+	path = vendor/gtplib
+	url = https://github.com/sjtu-ai-go/gtplib.git
+[submodule "vendor/googletest"]
+	path = vendor/googletest
+	url = https://github.com/sjtu-ai-go/googletest.git
