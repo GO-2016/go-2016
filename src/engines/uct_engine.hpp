@@ -29,7 +29,7 @@ namespace engines{
         bool received_pass = false;
         float komi = 6.5;
         int threadNums = 6;
-        int searchTime = 15;
+        int searchTime = 2;
 
         static board::Player colorToPlayer(Color c)
         {
@@ -83,17 +83,15 @@ namespace engines{
 
             mct::MCT<19,19> tree(board, colorToPlayer(c), threadNums);
             mct::Action<19,19> nextAction=tree.MCTSearch(searchTime);
-            /*
-            if(nextAction == NULL){
+            if(nextAction.pass == true){
                 return Pass();
             }else{
-            */
                 //logger->trace("Valid pos: ({}, {})  ", (int)nextAction.point.x, (int)nextAction.point.y);
                 logger->debug("Choose to place at {}, {}", (int)nextAction.point.x + 1, (int)nextAction.point.y + 1);
                 board.place(nextAction.point, colorToPlayer(c));
                 logger->debug("After genmove \n {}", board);
                 return VertexOrPass(nextAction.point.x + 1, nextAction.point.y + 1);
-            /*}*/
+            }
         }
         virtual void handle(const CmdPlay& cmd) override
         {
