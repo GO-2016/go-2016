@@ -40,10 +40,17 @@ include_directories(${libgo-common_INCLUDE_DIR})
 ################################
 add_subdirectory(${go-2016_SOURCE_DIR}/vendor/libgoboard)
 include_directories(${libgoboard_INCLUDE_DIR})
+
+################################
+# libmcts
+################################
+add_subdirectory(${go-2016_SOURCE_DIR}/vendor/libmcts)
+include_directories(${libmcts_INCLUDE_DIR})
+
 ################################
 # SRCS
 ################################
-set(engines_SRC src/engines/engine_factory.hpp src/engines/engine_factory.cpp src/engines/simple_engine_base.hpp src/engines/simple_engine_base.cpp src/engines/rand_engine.hpp)
+set(engines_SRC src/engines/engine_factory.hpp src/engines/engine_factory.cpp src/engines/simple_engine_base.hpp src/engines/simple_engine_base.cpp src/engines/rand_engine.hpp src/engines/uct_engine.hpp)
 
 ################################
 # Main program
