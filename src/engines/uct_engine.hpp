@@ -80,10 +80,12 @@ namespace engines{
             Color c = std::get<0>(cmd.params);
 
             //using PT = typename decltype(board)::PointType;
-
             mct::MCT<19,19> tree(board, colorToPlayer(c), threadNums);
+            std::cout << "Tree has built!" << std::endl;
             mct::Action<19,19> nextAction=tree.MCTSearch(searchTime);
+            std::cout << "Search has completed!" << std::endl;
             if(nextAction.pass == true){
+            	  std::cout << "I'm Here!" << std::endl;
                 return Pass();
             }else{
                 //logger->trace("Valid pos: ({}, {})  ", (int)nextAction.point.x, (int)nextAction.point.y);
