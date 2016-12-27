@@ -29,7 +29,7 @@ namespace engines{
         bool received_pass = false;
         float komi = 6.5;
         int threadNums = 6;
-        int searchTime = 2;
+        int searchTime = 5;
 
         static board::Player colorToPlayer(Color c)
         {
