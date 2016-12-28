@@ -28,8 +28,8 @@ namespace engines{
         board::Board<BOARDSIZE, BOARDSIZE> board;
         bool received_pass = false;
         float komi = 6.5;
-        int threadNums = 6;
-        int searchTime = 5;
+        int threadNums = 8;
+        int searchTime = 10;
 
         static board::Player colorToPlayer(Color c)
         {
@@ -81,11 +81,11 @@ namespace engines{
 
             //using PT = typename decltype(board)::PointType;
             mct::MCT<19,19> tree(board, colorToPlayer(c), threadNums);
-            std::cout << "Tree has built!" << std::endl;
+            //std::cout << "Tree has built!" << std::endl;
             mct::Action<19,19> nextAction=tree.MCTSearch(searchTime);
-            std::cout << "Search has completed!" << std::endl;
+            //std::cout << "Search has completed!" << std::endl;
             if(nextAction.pass == true){
-            	  std::cout << "I'm Here!" << std::endl;
+            	  //std::cout << "Pass!" << std::endl;
                 return Pass();
             }else{
                 //logger->trace("Valid pos: ({}, {})  ", (int)nextAction.point.x, (int)nextAction.point.y);
